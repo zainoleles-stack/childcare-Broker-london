@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Childcare Broker — Premium Childcare, Placed With Precision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0F1C2E;
+    --navy-light: #1A2D45;
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --ivory: #FAF8F5;
+    --ivory-dark: #F0EDE8;
+    --white: #FFFFFF;
+    --charcoal: #1A1A2E;
+    --slate: #6B7280;
+    --slate-light: #9CA3AF;
+    --blue-cta: #1D4ED8;
+    --blue-cta-hover: #1E40AF;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--ivory);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 0 2rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--slate);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .btn-nav {
+    background: var(--navy);
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .btn-nav:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    transform: translateY(-1px);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201, 168, 76, 0.12);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    width: fit-content;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.5);
+    color: var(--white);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .hero-trust {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-trust-item::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+  }
+
+  .hero-card-stack {
+    position: relative;
+    width: 340px;
+    height: 420px;
+  }
+
+  .profile-card {
+    position: absolute;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 280px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .profile-card.card-1 {
+    top: 0; left: 0;
+    animation-delay: 0s;
+  }
+
+  .profile-card.card-2 {
+    top: 80px; left: 60px;
+    animation-delay: 2s;
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.2);
+  }
+
+  .profile-card.card-3 {
+    top: 180px; left: 20px;
+    animation-delay: 4s;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  .card-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9rem;
+  }
+
+  .card-role {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-family: var(--mono);
+  }
+
+  .card-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin: 0.25rem 0.25rem 0 0;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--ivory-dark);
+    padding: 2rem 6rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-number span { color: var(--gold); }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--slate);
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* SECTION STYLES */
+  section {
+    padding: 6rem 6rem;
+  }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--slate);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* HOW IT WORKS */
+  .how-it-works {
+    background: var(--white);
+  }
+
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .step:hover { background: var(--ivory); }
+
+  .step-number {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: center;
+  }
+
+  .step-content h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .how-visual {
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how-visual::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2rem 1.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.65rem;
+    top: 0.4rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--navy);
+  }
+
+  .timeline-day {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+
+  .timeline-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--ivory);
+  }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--ivory-dark);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(15,28,46,0.1);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 48px; height: 48px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--slate);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .service-card:hover .service-link { gap: 0.7rem; }
+
+  /* TRUST / TESTIMONIALS */
+  .trust {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .trust .section-title { color: var(--white); }
+  .trust .section-sub { color: rgba(255,255,255,0.6); }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: background 0.2s;
+  }
+
+  .testimonial:hover { background: rgba(255,255,255,0.07); }
+
+  .stars {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.875rem;
+  }
+
+  .author-detail {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-family: var(--mono);
+  }
+
+  /* FOUNDER */
+  .founder {
+    background: var(--white);
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .founder-image {
+    position: relative;
+  }
+
+  .founder-image-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--navy);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .founder-placeholder {
+    font-family: var(--serif);
+    font-size: 6rem;
+    color: rgba(201,168,76,0.2);
+    user-select: none;
+  }
+
+  .founder-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--gold);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    color: var(--navy);
+  }
+
+  .founder-accent-number {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .founder-accent-label {
+    font-size: 0.7rem;
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  .founder-content blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--navy);
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .founder-content p {
+    color: var(--slate);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .founder-sig {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-top: 1.5rem;
+  }
+
+  /* USP SECTION */
+  .usp {
+    background: var(--ivory);
+  }
+
+  .usp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .usp-item {
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--ivory-dark);
+    background: var(--white);
+    transition: all 0.3s;
+  }
+
+  .usp-item:hover {
+    border-color: rgba(201,168,76,0.3);
+    box-shadow: 0 8px 32px rgba(15,28,46,0.08);
+  }
+
+  .usp-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .usp-item h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .usp-item p {
+    font-size: 0.875rem;
+    color: var(--slate);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 7rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-section .section-eyebrow {
+    justify-content: center;
+  }
+
+  .cta-section .section-eyebrow::after { display: none; }
+
+  .cta-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-section h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.55);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080E17;
+    padding: 4rem 6rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-top: 1rem;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.875rem;
+    text-decoration: none;
+    margin-bottom: 0.6rem;
+    transition: color 0.2s;
+    font-weight: 300;
+  }
+
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.25);
+    font-size: 0.8rem;
+    font-family: var(--mono);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    section { padding: 4rem 2rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-content { padding: 3rem 2rem; }
+    .hero-visual { display: none; }
+    .stats-bar { padding: 2rem; gap: 2rem; flex-wrap: wrap; }
+    .how-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .service-cards { grid-template-columns: 1fr 1fr; }
+    .testimonials { grid-template-columns: 1fr; }
+    .founder-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .usp-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .cta-section { padding: 5rem 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .service-cards { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">The <span>Childcare</span> Broker</a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="btn-nav">Book a Free Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">London's Premium Childcare Concierge</div>
+
+    <h1>Your child deserves <em>exceptional</em> care. We find it for you.</h1>
+
+    <p class="hero-sub">
+      We take the overwhelm out of finding trusted childcare. Tell us what your family needs — we search, vet, and match you with the very best. You focus on what matters.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book a Free Consultation →</a>
+      <a href="#how" class="btn-secondary">See How It Works</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item">DBS Verified</div>
+      <div class="hero-trust-item">Ofsted Rated</div>
+      <div class="hero-trust-item">London Based</div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="profile-card card-1">
+        <div class="card-header">
+          <div class="card-avatar">SE</div>
+          <div>
+            <div class="card-name">Sarah E.</div>
+            <div class="card-role">Qualified Nanny</div>
+          </div>
+        </div>
+        <div>
+          <span class="card-tag">DBS Verified</span>
+          <span class="card-tag">First Aid</span>
+          <span class="card-tag">Ofsted Reg.</span>
+        </div>
+      </div>
+
+      <div class="profile-card card-2">
+        <div class="card-header">
+          <div class="card-avatar">MB</div>
+          <div>
+            <div class="card-name">Maple Brook</div>
+            <div class="card-role">Private Nursery</div>
+          </div>
+        </div>
+        <div>
+          <span class="card-tag">Outstanding</span>
+          <span class="card-tag">EYFS</span>
+          <span class="card-tag">West London</span>
+        </div>
+      </div>
+
+      <div class="profile-card card-3">
+        <div class="card-header">
+          <div class="card-avatar">CJ</div>
+          <div>
+            <div class="card-name">Claire J.</div>
+            <div class="card-role">Childminder</div>
+          </div>
+        </div>
+        <div>
+          <span class="card-tag">7 Yrs Exp</span>
+          <span class="card-tag">SEN Trained</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">500<span>+</span></div>
+    <div class="stat-label">Families Placed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">98<span>%</span></div>
+    <div class="stat-label">Satisfaction Rate</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">48<span>h</span></div>
+    <div class="stat-label">Average Match Time</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">100<span>%</span></div>
+    <div class="stat-label">DBS Checked</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how">
+  <div class="section-eyebrow">Our Process</div>
+  <div class="how-grid">
+    <div>
+      <h2 class="section-title">We do the hard work.<br>You do the <em>parenting.</em></h2>
+      <p class="section-sub" style="margin-bottom: 2.5rem;">
+        Finding exceptional childcare is a full-time job in itself. Our concierge service removes every step of the process — from research to references to placement.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Tell us about your family</h3>
+            <p>A 20-minute discovery call where we learn your schedule, values, preferences, and non-negotiables. No forms. No tick boxes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>We search the market for you</h3>
+            <p>Our team scours our verified network and finds candidates that genuinely fit — not just whoever's available.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>We present your shortlist</h3>
+            <p>You receive a curated shortlist of 3–5 vetted, referenced, DBS-checked options with our full assessment.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>We place and support</h3>
+            <p>We handle contracts, trial days, and onboarding. And we're on hand for the first 90 days to make sure everything's perfect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-visual">
+      <div style="font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;">Typical Timeline</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-day">Day 1</div>
+          <div class="timeline-text">Discovery call completed. Family brief sent to our network.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-day">Day 3–5</div>
+          <div class="timeline-text">Candidates interviewed & referenced by our team.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-day">Day 7</div>
+          <div class="timeline-text">Shortlist presented with detailed profiles & our recommendation.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-day">Day 10–14</div>
+          <div class="timeline-text">Trial day arranged. Contract drafted. Start date confirmed.</div>
+        </div>
+        <div class="timeline-item" style="padding-bottom: 0;">
+          <div class="timeline-day">Day 14+</div>
+          <div class="timeline-text">Your family is in safe, trusted hands. We check in at 30, 60 & 90 days.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow">What We Place</div>
+      <h2 class="section-title">Every type of childcare,<br><em>placed with precision.</em></h2>
+    </div>
+    <p class="section-sub" style="max-width: 360px;">We cover every category of premium childcare — always with the same rigorous standards and personalised service.</p>
+  </div>
+
+  <div class="service-cards">
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <h3>Nannies</h3>
+      <p>Experienced, qualified nannies for full-time, part-time, live-in or live-out arrangements. Every candidate is personally interviewed and referenced.</p>
+      <a href="#contact" class="service-link">Find a Nanny →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏫</div>
+      <h3>Nurseries</h3>
+      <p>Premium nursery placements across London. We match your child's age, learning style, and location to the right setting — and help you secure a space.</p>
+      <a href="#contact" class="service-link">Find a Nursery →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏡</div>
+      <h3>Childminders</h3>
+      <p>Registered, Ofsted-rated childminders offering a warm, home-from-home environment. Ideal for families wanting smaller, more personal settings.</p>
+      <a href="#contact" class="service-link">Find a Childminder →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌙</div>
+      <h3>Babysitters</h3>
+      <p>Vetted, trusted babysitters for evenings, weekends, and ad-hoc cover. Background-checked, first-aid trained, and available at short notice.</p>
+      <a href="#contact" class="service-link">Find a Babysitter →</a>
+    </div>
+  </div>
+</section>
+
+<!-- USP -->
+<section class="usp">
+  <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+    <div class="section-eyebrow" style="justify-content: center;">
+      <span>Why Families Choose Us</span>
+    </div>
+    <h2 class="section-title">Not a directory.<br>A <em>concierge.</em></h2>
+    <p class="section-sub" style="margin: 0 auto;">Anyone can hand you a list. We do the work that actually matters.</p>
+  </div>
+
+  <div class="usp-grid">
+    <div class="usp-item">
+      <span class="usp-icon">🔍</span>
+      <h3>We search on your behalf</h3>
+      <p>You don't scroll through profiles. We search our verified network, reach out, and pre-screen every candidate before you see a single name.</p>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">✅</span>
+      <h3>Our vetting goes deeper</h3>
+      <p>DBS checks, reference calls, qualifications, and an in-person interview from our team. Most platforms just verify an ID. We verify the person.</p>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">🤝</span>
+      <h3>We stay with you</h3>
+      <p>Placement isn't the end. We check in at 30, 60, and 90 days. If something isn't right, we work with you to fix it — including a rematch if needed.</p>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">💼</span>
+      <h3>We handle the paperwork</h3>
+      <p>Contracts, PAYE guidance, trial day agreements. The admin side of hiring a nanny is complex. We navigate it so you don't have to.</p>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">🎯</span>
+      <h3>It's personal, not algorithmic</h3>
+      <p>A real person manages your placement from start to finish. No chatbots. No ticket systems. A dedicated consultant who knows your family.</p>
+    </div>
+    <div class="usp-item">
+      <span class="usp-icon">🇬🇧</span>
+      <h3>London-wide, premium only</h3>
+      <p>We work with families across London. And we only work with providers who meet our premium standard — no exceptions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="trust">
+  <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+    <div class="section-eyebrow" style="justify-content: center;"><span>Client Stories</span></div>
+    <h2 class="section-title">Families who trusted us<br>to get it <em>right.</em></h2>
+  </div>
+
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"I'd spent three months searching on my own and was completely burned out. The Childcare Broker found us the perfect nanny in under two weeks. I wish I'd called them first."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SR</div>
+        <div>
+          <div class="author-name">Sophie R.</div>
+          <div class="author-detail">Mother of two · London</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"As a single parent working in finance, I needed someone I could trust completely. They understood exactly what I was looking for and delivered. Exceptional service."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JM</div>
+        <div>
+          <div class="author-name">James M.</div>
+          <div class="author-detail">Father of one · Canary Wharf</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"We relocated from New York and had no idea where to start with London childcare. They made the whole process effortless. Our nursery placement is outstanding."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AB</div>
+        <div>
+          <div class="author-name">Amanda B.</div>
+          <div class="author-detail">Relocating family · South West London</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="about">
+  <div class="founder-grid">
+    <div class="founder-image">
+      <div class="founder-image-box">
+        <div class="founder-placeholder">TCB</div>
+      </div>
+      <div class="founder-accent">
+        <div class="founder-accent-number">500+</div>
+        <div class="founder-accent-label">Families Placed</div>
+      </div>
+    </div>
+
+    <div class="founder-content">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="section-title">Built by a parent<br>who <em>lived</em> the problem.</h2>
+
+      <blockquote>
+        "I spent six months searching for a nanny I could trust. I kissed a lot of frogs. There had to be a better way."
+      </blockquote>
+
+      <p>The Childcare Broker was founded because finding great childcare was broken. Parents were left to wade through unvetted platforms, generic listings, and contradictory advice — all while trying to run a home, a career, and a life.</p>
+
+      <p>We built a service that treats childcare the way it deserves to be treated: as one of the most important decisions a family will ever make. With proper vetting, personal guidance, and genuine accountability.</p>
+
+      <p>Every family we work with gets the same level of care we'd want for our own children. That's not a marketing line. It's the only way we know how to work.</p>
+
+      <div class="founder-sig">The Childcare Broker</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-eyebrow">Ready to Begin</div>
+  <h2>Let's find your family<br>the care it <em>deserves.</em></h2>
+  <p>Book a free, no-obligation consultation call. We'll listen to what your family needs and explain exactly how we can help.</p>
+  <div class="cta-actions">
+    <a href="tel:+441234567890" class="btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">Book a Free Call →</a>
+    <a href="mailto:hello@thechildcarebroker.co.uk" class="btn-secondary" style="font-size: 1rem; padding: 1rem 2.5rem;">Email Us Instead</a>
+  </div>
+  <p style="margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); font-family: var(--mono);">Free consultation · No commitment · Response within 2 hours</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--white);">
+        The <span style="color: var(--gold);">Childcare</span> Broker
+      </div>
+      <p>Premium childcare placement for families across London. Serving all boroughs — from Chelsea to Canary Wharf, Hampstead to Notting Hill. Personal, vetted, and done properly.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Nannies</a>
+      <a href="#">Nurseries</a>
+      <a href="#">Childminders</a>
+      <a href="#">Babysitters</a>
+      <a href="#">Corporate</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">How It Works</a>
+      <a href="#">For Providers</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">Book a Call</a>
+      <a href="#">hello@thechildcarebroker.co.uk</a>
+      <a href="#">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 The Childcare Broker. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+</body>
+</html>
